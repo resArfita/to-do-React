@@ -1,11 +1,19 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
-const Todos = ({ todos }) => {
+//menerima function toggleCompleted sebagai sebuah grup
+const Todos = ({ todos, toggleCompleted }) => {
     return (
         <div style={styles.container}>
             {todos.map((todo) => {
-                return <TodoItem key={todo.id} todo={todo} />
+                return (
+                    <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        //teruskan function toggleCompleted ke component ke TodoItem
+                        toggleCompleted={toggleCompleted}
+                    />
+                )
             })}
         </div>
     )
