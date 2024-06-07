@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+//import 'createContext' dari react
+import React, { useState, createContext } from 'react'
 import Todos from './components/Todos'
 import TodoForm from './components/TodoForm'
+
+//buat context
+export const TodoContext = createContext()
 
 function App() {
   const [todos, setTodos] = useState([
@@ -8,16 +12,19 @@ function App() {
       id: 1,
       title: 'Finish Progate React Course',
       completed: false,
+      deleted: false,
     },
     {
       id: 2,
       title: 'Have lunch with Guru Domba',
       completed: false,
+      deleted: false,
     },
     {
       id: 3,
       title: 'Study React with Ninja Ken',
       completed: false,
+      deleted: false,
     },
   ])
 
@@ -36,13 +43,9 @@ function App() {
 
   //define deleteTodo
   const deleteTodo = (todoId) => {
-    const deletedTodo = todos.filter((todo) => {
-      if (todo.id === todoId) {
-        todo.deleted = !todo.deleted
-      }
-      return todo
-    })
-    setTodos(deletedTodo)
+    const updatedTodos = todos.filter((todo) =>
+      todo.id !== todoId)
+    setTodos(updatedTodos)
   }
 
   //define addTodo
@@ -55,6 +58,7 @@ function App() {
       id: todos.length + 1,
       title: todoTitle,
       completed: false,
+      deleted: false,
     }
 
     const updatedTodos = todos.concat(newTodo)
@@ -62,15 +66,21 @@ function App() {
   }
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>My Todo List</h1>
-      {/* menampilkan component TodoForm & teruskan functionnya sebagai props */}
-      <TodoForm addTodo={addTodo} />
-      <Todos
-        todos={todos}
-        toggleCompleted={toggleCompleted} 
-      /> 
-    </div>
+    //bungkus app dengan provider dari context
+    <TodoContext.Provider value={{ toggleCompleted, deleteTodo }}>
+    
+      <div style={styles.container}>
+        <h1 style={styles.title}>My Todo List</h1>
+        {/* render component TodoForm & teruskan functionnya sebagai props */}
+        <TodoForm addTodo={addTodo} />
+        <Todos
+          todos={todos}
+          /*toggleCompleted={toggleCompleted} dan
+            deleteTodo={deleteTodo} tidak diperlukan lagi
+          */
+          /> 
+      </div>
+    </TodoContext.Provider>
   )
 }
 
@@ -81,6 +91,10 @@ const styles = {
   },
   title: {
     fontSize: '36px',
+    backgroundColor: '#222870',
+    color: '#fff',
+    width: '50vw',
+    margin: '20px auto',
   },
 }
 
