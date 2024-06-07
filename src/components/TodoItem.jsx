@@ -16,10 +16,12 @@ const TodoItem = ({ todo, toggleCompleted }) => {
             <input
                 type='checkbox'
                 style={styles.checkbox}
-                //Memberikan id dari todo sebagai argument
                 onChange={() => toggleCompleted(todo.id)}
                 />
             <p style={getTodoTitleStyle()}>{todo.title}</p>
+            <button
+                style={styles.button}
+                >x</button>
         </div>
     )
 }
@@ -28,17 +30,26 @@ const styles = {
     todoItem: {
         border: '2px solid #576d91',
         fontSize: '24px',
-        //Tambahkan styles di bawah sini
         display: 'flex',
-        justifyContent: 'left',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        paddingLeft: '25px',
+        padding: ' 0 40px',
     },
     checkbox: {
         marginRight: '15px',
         height: '18px',
         width: '18px',
     },
+    button: {
+        backgroundColor: '#371b8c',
+        color: '#fff',
+        height: '25px',
+        width: '25px',
+        borderRadius: '100%',
+        border: 'none',
+        cursor: 'pointer',
+        fontSize: '16px',
+    }
 }
 
 export default TodoItem
