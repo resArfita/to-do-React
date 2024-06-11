@@ -55,6 +55,10 @@ const styles = {
     button: {
         height: '72px',
         fontSize: '16px',
+        backgroundColor: '#5159b0',
+        color: '#fff',
+        border: 'none',
+        cursor: 'pointer',
     },
 }
 
