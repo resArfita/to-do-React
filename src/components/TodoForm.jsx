@@ -8,7 +8,7 @@ const TodoForm = ({ addTodo }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         addTodo(title) //teruskan title sebagai argument
-        setTitle('') //reset title-nya
+        setTitle('')
     }
 
     //define function handleChangeTitle
@@ -53,7 +53,7 @@ const styles = {
         padding: '0 16px',
     },
     button: {
-        height: '72px',
+        height: '70px',
         fontSize: '16px',
         backgroundColor: '#5159b0',
         color: '#fff',

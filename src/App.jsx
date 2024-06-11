@@ -91,7 +91,6 @@ const styles = {
   },
   title: {
     fontSize: '36px',
-    backgroundColor: '#222870',
     color: '#fff',
     width: '50vw',
     margin: '20px auto',

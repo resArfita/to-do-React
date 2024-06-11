@@ -16,14 +16,14 @@ const TodoItem = ({ todo }) => {
 
     return (
         <div style={styles.todoItem}>
-            {/* Menambahkan checkbox */}
+            {/* checkbox button */}
             <input
                 type='checkbox'
                 style={styles.checkbox}
                 onChange={() => toggleCompleted(todo.id)}
                 />
             <p style={getTodoTitleStyle()}>{todo.title}</p>
-            <button
+            <button //delete button
                 style={styles.button}
                 onClick={() => deleteTodo(todo.id)
                 }>x</button>
@@ -33,12 +33,14 @@ const TodoItem = ({ todo }) => {
 
 const styles = {
     todoItem: {
-        border: '2px solid #576d91',
+        borderBottom: '1px solid #fff',
         fontSize: '24px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: ' 0 40px',
+        color: '#fff',
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
     },
     checkbox: {
         marginRight: '15px',
@@ -46,7 +48,7 @@ const styles = {
         width: '18px',
     },
     button: {
-        backgroundColor: '#371b8c',
+        backgroundColor: '#A5003D',
         color: '#fff',
         height: '25px',
         width: '25px',
