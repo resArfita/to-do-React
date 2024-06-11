@@ -18,6 +18,7 @@ const TodoItem = ({ todo }) => {
         <div style={styles.todoItem}>
             {/* checkbox button */}
             <input
+                id= 'cb'
                 type='checkbox'
                 style={styles.checkbox}
                 onChange={() => toggleCompleted(todo.id)}
@@ -46,6 +47,7 @@ const styles = {
         marginRight: '15px',
         height: '18px',
         width: '18px',
+        accentColor: '#5AE73C',
     },
     button: {
         backgroundColor: '#A5003D',
