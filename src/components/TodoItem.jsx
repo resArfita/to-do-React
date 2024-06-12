@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
-import { TodoContext } from '../App' //import hook 'useContext' dari React dan 'TodoContext' dari App.jsx
+import { TodoContext } from '../App'
 
-//awalnya menerima function toggleCompleted dan deleteTodo sebagai sebuah prop
-//karena import dari app.jsx, toggle dan delete dihapus
+
 const TodoItem = ({ todo }) => {
-    //dapatkan toggleCompleted dan deleteTodo dari TodoContext
     const { toggleCompleted, deleteTodo } = useContext(TodoContext)
     const getTodoTitleStyle = () => {
         if (todo.completed === true) {
@@ -18,7 +16,6 @@ const TodoItem = ({ todo }) => {
         <div style={styles.todoItem}>
             {/* checkbox button */}
             <input
-                id= 'cb'
                 type='checkbox'
                 style={styles.checkbox}
                 onChange={() => toggleCompleted(todo.id)}
@@ -26,8 +23,7 @@ const TodoItem = ({ todo }) => {
             <p style={getTodoTitleStyle()}>{todo.title}</p>
             <button //delete button
                 style={styles.button}
-                onClick={() => deleteTodo(todo.id)
-                }>x</button>
+                onClick={() => deleteTodo(todo.id)}>x</button>
         </div>
     )
 }

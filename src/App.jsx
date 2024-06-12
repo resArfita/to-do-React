@@ -12,19 +12,16 @@ function App() {
       id: 1,
       title: 'Finish Progate React Course',
       completed: false,
-      deleted: false,
     },
     {
       id: 2,
       title: 'Have lunch with Guru Domba',
       completed: false,
-      deleted: false,
     },
     {
       id: 3,
       title: 'Study React with Ninja Ken',
       completed: false,
-      deleted: false,
     },
   ])
 
@@ -43,8 +40,7 @@ function App() {
 
   //define deleteTodo
   const deleteTodo = (todoId) => {
-    const updatedTodos = todos.filter((todo) =>
-      todo.id !== todoId)
+    const updatedTodos = todos.filter((todo) => todo.id !== todoId)
     setTodos(updatedTodos)
   }
 
@@ -58,7 +54,6 @@ function App() {
       id: todos.length + 1,
       title: todoTitle,
       completed: false,
-      deleted: false,
     }
 
     const updatedTodos = todos.concat(newTodo)
@@ -68,17 +63,13 @@ function App() {
   return (
     //bungkus app dengan provider dari context
     <TodoContext.Provider value={{ toggleCompleted, deleteTodo }}>
-    
       <div style={styles.container}>
         <h1 style={styles.title}>My Todo List</h1>
         {/* render component TodoForm & teruskan functionnya sebagai props */}
         <TodoForm addTodo={addTodo} />
         <Todos
           todos={todos}
-          /*toggleCompleted={toggleCompleted} dan
-            deleteTodo={deleteTodo} tidak diperlukan lagi
-          */
-          /> 
+        /> 
       </div>
     </TodoContext.Provider>
   )
