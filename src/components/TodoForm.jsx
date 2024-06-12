@@ -16,7 +16,7 @@ const TodoForm = ({ addTodo }) => {
         setTitle(e.target.value)
     }
 
-    //check if function handleChangeTitle berfungsi
+
     console.log(title)
 
     return (
@@ -24,19 +24,19 @@ const TodoForm = ({ addTodo }) => {
             <form
                 onSubmit={(e) => {
                 handleSubmit(e)
-            }}
+                }}
             >
                 <input
                     type='text'
-                    placeholder='Add your Todo'
+                    placeholder='Add Todo'
                     style={styles.formInput}
                     //tambahkan event handler 'onChange'
                     onChange={(e) => {
                         handleChangeTitle(e)
                     }}
-                    value={title} //atur nilai dari input sesuai state 'title'
+                    value={title}
                 />
-                <button style={styles.button}>Add Todo</button>
+                <button style={styles.button}>Add</button>
             </form>
         </div>
     )
@@ -48,7 +48,7 @@ const styles = {
     },
     formInput: {
         height: '66px',
-        width: '40%',
+        width: '40vw',
         fontSize: '16px',
         padding: '0 16px',
     },
@@ -59,6 +59,7 @@ const styles = {
         color: '#fff',
         border: 'none',
         cursor: 'pointer',
+        width: '8vw',
     },
 }
 
